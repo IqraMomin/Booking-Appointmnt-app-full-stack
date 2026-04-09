@@ -34,8 +34,8 @@ export const UserProvider = ({children})=>{
     }
     const editUser = async(id,user)=>{
         await axios.put(`http://localhost:3000/users/${id}`,user);
-        const newList = users.filter(ele=>ele.id!==id);
-        setUsers([...newList,{...user,id}]);
+        setUsers(prev=>prev.map(ele=> ele.id!==id?ele:{...user,id}));
+        
     }
 
     const getUsers = async()=>{

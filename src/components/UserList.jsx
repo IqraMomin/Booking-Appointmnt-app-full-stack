@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { UserContext } from "../context/UserContext";
+import "./UserList.css";
 
 function UserList(){
     const userCtx = useContext(UserContext);

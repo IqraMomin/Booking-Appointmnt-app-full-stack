@@ -53,7 +53,10 @@ function Form() {
                     <input id='phone' type='phone' value={phone} onChange={(e) => { setPhone(e.target.value) }} />
 
                 </div>
+                <div>
                 <button type='submit'>Add User</button>
+                </div>
+               
             </form>
         </div>
     )
