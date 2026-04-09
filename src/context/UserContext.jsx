@@ -38,8 +38,13 @@ export const UserProvider = ({children})=>{
         setUsers([...newList,{...user,id}]);
     }
 
+    const getUsers = async()=>{
+        const res = await axios.get(`http://localhost:3000/users/`);
+        setUsers(res.data);
+    }
+
     return (
-        <UserContext.Provider value={{users,addUser,deleteUser,isEdit,editUserHandler,editUser}}>
+        <UserContext.Provider value={{users,addUser,deleteUser,isEdit,editUserHandler,editUser,getUsers}}>
             {children}
         </UserContext.Provider>
     )

@@ -1,17 +1,20 @@
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import './App.css'
 import Form from './components/Form'
 import UserList from './components/UserList'
-import { UserProvider } from './context/UserContext'
+import { UserContext } from './context/UserContext'
 
 function App() {
+  const userCtx = useContext(UserContext);
+
+  useEffect(()=>{
+    userCtx.getUsers();
+  },[]);
 
   return (
-    <>
-      <UserProvider>
+    <>     
         <Form />
         <UserList />
-      </UserProvider>
 
     </>
   )
